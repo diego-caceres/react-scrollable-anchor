@@ -3,13 +3,11 @@
   "version": "0.5.0",
   "description": "Provide smooth scrolling anchors in React.",
   "main": "lib/index.js",
-  "files": [
-    "lib",
-    "README.md"
-  ],
+  "files": ["lib", "README.md"],
   "scripts": {
     "clean": "rimraf lib",
     "build": "babel src --out-dir lib",
+    "build2": "babel src --out-dir dist",
     "watch": "babel src --out-dir lib --source-maps inline --watch",
     "example": "cd example && npm i; npm run start",
     "lint": "eslint src",
