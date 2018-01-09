@@ -10,15 +10,21 @@ var getScrollTop = exports.getScrollTop = function getScrollTop() {
 // get vertical offsets of element, taking scrollTop into consideration
 var getElementOffset = exports.getElementOffset = function getElementOffset(element) {
   var scrollTop = getScrollTop();
+  if (element) {
+    var _element$getBoundingC = element.getBoundingClientRect(),
+        top = _element$getBoundingC.top,
+        bottom = _element$getBoundingC.bottom;
 
-  var _element$getBoundingC = element.getBoundingClientRect(),
-      top = _element$getBoundingC.top,
-      bottom = _element$getBoundingC.bottom;
-
-  return {
-    top: Math.floor(top + scrollTop),
-    bottom: Math.floor(bottom + scrollTop)
-  };
+    return {
+      top: Math.floor(top + scrollTop),
+      bottom: Math.floor(bottom + scrollTop)
+    };
+  } else {
+    return {
+      top: Math.floor(scrollTop),
+      bottom: Math.floor(scrollTop)
+    };
+  }
 };
 
 // does scrollTop live within element bounds?
